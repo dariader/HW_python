@@ -5,7 +5,7 @@ class Rna: #define  class
         
         self.acid = acid.upper()
         
-        if 'A' and 'C' and 'G' and 'U' in self.acid:
+        if 'A' and 'C' and 'G' and 'U' not in self.acid:
               raise 'TypeError01: Not RNA sequence, please, check the data'
         else:
             pass
@@ -26,7 +26,7 @@ class Dna(Rna): #define  class
         self.acid = acid.upper()
         
         
-        if 'A' and 'C' and 'G' and 'T' in self.acid:
+        if 'A' and 'C' and 'G' and 'T' not in self.acid:
               raise 'TypeError01: Not DNA sequence, please, check the data'
         else:
             pass
