@@ -2,21 +2,21 @@ class Rna: #define  class
     def __init__(self, acid):
         
         assert isinstance(acid, str)
-        self.reverse_complement = ""
+        
         self.acid = acid.upper()
         
         if not filter(lambda m: m not in 'AUGC', self.acid):
             raise 'TypeError01: Not RNA sequence, please, check the data'
         else:
-            print(acid, '5-3 RNA is your input')
             pass
         
         
     def gc(self): 
+        print(self.acid, '5-3 RNA is your input, GC content is')
         return (self.acid.count('G') + self.acid.count('C')) / len(self.acid)
     
     def reverse_complement(self):
-        
+        print(self.acid, '5-3 RNA is your input, reverse complement is')
         return self.acid.translate(str.maketrans('AUGC', 'UACG'))[::-1]
 
 class Dna(Rna): #define  class 
@@ -24,28 +24,31 @@ class Dna(Rna): #define  class
         
         assert isinstance(acid, str)
         self.acid = acid.upper()
-            
+        
+        
         if not filter(lambda m: m not in 'ATGC', self.acid):
             raise 'TypeError01: Not DNA sequence, please, check the data'
         else:
-            print(acid, '5-3 DNA is your input')
             pass
         
     def reverse_complement(self):
+        print(self.acid, '5-3 DNA is your input, reverse complement is')
+            
         return self.acid.translate(str.maketrans('ATGC', 'TACG'))[::-1]
         
     
     def transcribe(self):
+           
         transcript = Rna(self.acid.translate(str.maketrans('T', 'U'))) 
-        
-        
-        return (transcript.acid)         #returns 5' - 3' RNA
+        print(self.acid, '5-3 DNA is your input, transcript is','\n', transcript.acid)
+         
+        return transcript     #returns 5' - 3' RNA
     
-    
- ############# Usage examples
-    
-input_dna = Dna(('GGGG'))
-print(input_dna.reverse_complement())
-print(input_dna.gc())
-output_rna = input_dna.transcribe()
-print(output_rna)
+   
+    ###############test data
+first = Dna(('GGGG'))
+print(first.reverse_complement())
+print(first.gc())
+second = first.transcribe()
+print(second)
+second.reverse_complement()
