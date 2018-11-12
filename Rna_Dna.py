@@ -12,7 +12,7 @@ class Rna: #define  class
         
         
     def gc(self): 
-        print(self.acid, '5-3 RNA is your input, GC content is')
+        print(self.acid, 'is your input, GC content is')
         return (self.acid.count('G') + self.acid.count('C')) / len(self.acid)
     
     def reverse_complement(self):
@@ -44,14 +44,15 @@ class Dna(Rna): #define  class
          
         return transcript     #returns 5' - 3' RNA
     
+
    
     ###############test data
-first = Dna(('GGGG'))
+first = Dna(('AGATACACA'))
 print(first.reverse_complement())
 print(first.gc())
 second = first.transcribe()
 print(second)
 second.reverse_complement()
-first = Rna('GGGG')
+first = Rna('GATTACA')
 print(first.reverse_complement())
 print(first.gc())
