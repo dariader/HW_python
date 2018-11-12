@@ -5,8 +5,8 @@ class Rna: #define  class
         
         self.acid = acid.upper()
         
-        if not filter(lambda m: m not in 'AUGC', self.acid):
-            raise 'TypeError01: Not RNA sequence, please, check the data'
+        if 'A' and 'C' and 'G' and 'U' in self.acid:
+              raise 'TypeError01: Not RNA sequence, please, check the data'
         else:
             pass
         
@@ -26,8 +26,8 @@ class Dna(Rna): #define  class
         self.acid = acid.upper()
         
         
-        if not filter(lambda m: m not in 'ATGC', self.acid):
-            raise 'TypeError01: Not DNA sequence, please, check the data'
+        if 'A' and 'C' and 'G' and 'T' in self.acid:
+              raise 'TypeError01: Not DNA sequence, please, check the data'
         else:
             pass
         
@@ -44,8 +44,6 @@ class Dna(Rna): #define  class
          
         return transcript     #returns 5' - 3' RNA
     
-
-   
     ###############test data
 first = Dna(('AGATACACA'))
 print(first.reverse_complement())
